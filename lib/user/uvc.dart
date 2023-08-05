@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../service/user_service.dart';
+import '../service/service.dart';
 
 class vCodePage extends StatefulWidget {
   const vCodePage({super.key});
@@ -7,7 +7,7 @@ class vCodePage extends StatefulWidget {
   @override
   State<vCodePage> createState() => _vCodePageState();
 }
-
+var data = getAllVerCode();
 class _vCodePageState extends State<vCodePage> {
   @override
   Widget build(BuildContext context) {
@@ -30,12 +30,13 @@ class _vCodePageState extends State<vCodePage> {
             }
 
             return SingleChildScrollView(
-              child: ListView.builder(
-                itemCount: vCodeList.length,
-                itemBuilder: (context, index) {                  
-                  return ;
-                },
-              ),
+              child: DataTable(columns: [
+          DataColumn(label: Text('Name')),
+          DataColumn(label: Text('phone')),
+          DataColumn(label: Text('verification Code')),
+        ], rows: [
+         
+        ]),
             );
           } else {
             return const Center(
